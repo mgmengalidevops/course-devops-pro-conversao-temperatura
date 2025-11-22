@@ -1,17 +1,12 @@
-FROM ubuntu:latest
-
-ENV NODE_MAJOR=20
+FROM node:20.19.5-alpine3.22
 
 WORKDIR /app
 
-RUN apt update && apt-get install -y curl && \
-  curl -fsSl https://deb.nodesource.com/setup_${NODE_MAJOR}.x | bash - && \
-  apt-get install -y nodejs && \
-  echo "Node Version: " && node -v
-
-COPY . .
+COPY package*.json .
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 8080
 
