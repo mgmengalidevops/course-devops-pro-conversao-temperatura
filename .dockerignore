@@ -1,0 +1,5 @@
+README.md
+.gitignore
+.node_modules/
+docker-commit.md
+image.json
